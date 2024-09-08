@@ -1,1 +1,1 @@
-Sonya Moisset Personal Website
+Personal Website

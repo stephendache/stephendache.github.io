@@ -127,31 +127,34 @@
     })
   }
 
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  const testimonialsSlider = select('.testimonials-slider');
+  if (testimonialsSlider) {
+    new Swiper(testimonialsSlider, {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
       }
-    }
-  });
+    });
+  }
 
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
@@ -178,29 +181,36 @@
 
   });
 
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  if (select('.portfolio-lightbox')) {
+    GLightbox({
+      selector: '.portfolio-lightbox'
+    });
+  }
 
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+  if (select('.portfolio-details-lightbox')) {
+    GLightbox({
+      selector: '.portfolio-details-lightbox',
+      width: '90%',
+      height: '90vh'
+    });
+  }
 
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  const portfolioDetailsSlider = select('.portfolio-details-slider');
+  if (portfolioDetailsSlider) {
+    new Swiper(portfolioDetailsSlider, {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 
   new PureCounter();
 
